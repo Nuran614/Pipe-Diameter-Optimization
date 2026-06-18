@@ -1,4 +1,4 @@
-# The problem
+# The Problem
 
 This is Exercise 13.1 from Edgar, Himmelblau & Lasdon. The setup is a
 hydrocarbon piping system between two points at the same elevation. You know
@@ -64,12 +64,6 @@ Chemical engineering runs on calculation. For a long time that meant a chart
 in a handbook or a formula you could solve by hand. Those still work, but only
 for the clean cases. Real plants have fittings, fouling, constraints, and
 equations that don't rearrange nicely.
-
-Python handles the messy version without complaint. The same few lines that
-found this pipe diameter scale up to problems with ten variables and a dozen
-constraints. The libraries are free, the code reads clearly, and anyone can
-rerun it when a number changes. A script in a repo also beats a spreadsheet
-nobody can audit six months later.
 
 ## Running it
 
