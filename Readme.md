@@ -58,13 +58,6 @@ least. No formula, no derivative by hand. The optimizer pokes at the cost
 function until it finds the bottom, which is exactly what you'd want when the
 model grows too messy to solve on paper.
 
-## Why Python?
-
-Chemical engineering runs on calculation. For a long time that meant a chart
-in a handbook or a formula you could solve by hand. Those still work, but only
-for the clean cases. Real plants have fittings, fouling, constraints, and
-equations that don't rearrange nicely.
-
 ## Running it
 
 ```bash
