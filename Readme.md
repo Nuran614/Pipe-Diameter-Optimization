@@ -35,11 +35,6 @@ the best diameter grows by roughly 1.4x. For the book's numbers (50 lb/s of a
 liquid near the density of water) the optimum is 0.473 ft, or 5.7 inches. The
 nearest standard size is a 6-inch pipe, where the fluid runs at about 4.2 ft/s.
 
-The interesting part is the book's last point. The moment the model gets
-realistic, the clean formula dies. Add fittings, valves, elevation, solids, or
-a pump cost with its own exponent, and there's no tidy derivative left to
-solve. You have to go numerical. That is where Python comes in.
-
 ![cost curves](pipe_plot.png)
 
 ## How the code works
