@@ -46,7 +46,7 @@ class pipe:
         ax.plot(diameters, total, lw=2.5, color="#2ca02c")
         ax.axvline(optimal_diameter, color="grey", ls=":")
         ax.set_xlim(0.2, 1.2)
-        ax.set_ylim(-2, 38)
+        ax.set_ylim(-2, 10)
 
         CurvedText(diameters, capital, "capital", ax, pos=0.070, offset=-7.5,
                    color="#1f77b4", fontsize=13, fontweight="bold")
