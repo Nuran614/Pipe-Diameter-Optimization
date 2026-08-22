@@ -39,7 +39,7 @@ nearest standard size is a 6-inch pipe, where the fluid runs at about 4.2 ft/s.
 
 ## How the code works
 
-Two functions carry the whole thing.
+The `pipe` class stores the physical and economic inputs. Its main methods are:
 
 `total_cost(diameter)` is the model. You hand it a diameter in feet and it
 gives back the yearly cost in dollars. Inside, it walks the same physics chain
@@ -48,7 +48,7 @@ then the friction factor, then the friction loss. The last two lines add the
 two costs, pipe and pump, and return the sum. This is the function everything
 else leans on.
 
-`make_plot(diameter_opt)` is just the picture. It sweeps a range of diameters,
+`make_plot(optimal_diameter)` is just the picture. It sweeps a range of diameters,
 calls `total_cost` across them, and draws the capital, operating, and total
 curves, with a marker on the optimum.
 
@@ -58,15 +58,67 @@ least. No formula, no derivative by hand. The optimizer pokes at the cost
 function until it finds the bottom, which is exactly what you'd want when the
 model grows too messy to solve on paper.
 
+Before optimization starts, the program prints the default values and asks
+whether any variable should be changed. Answer `n` or press Enter to use the
+defaults. Answer `y` to review each setting; press Enter beside a setting to
+keep its default value, or enter a positive number to replace it.
+
+The available settings are:
+
+- `mass_flow`: mass flow rate in lb/s
+- `density`: fluid density in lb/ft^3
+- `viscosity`: dynamic viscosity in lb/(ft s)
+- `pump_efficiency`: pump efficiency
+- `cost_coeff_pump`: pumping cost coefficient
+- `cost_coeff_pipe`: pipe cost coefficient
+- `pipe_exponent`: exponent used in the pipe capital cost model
+- `pipe_length`: pipe length in ft
+- `gravitational_constant`: gravitational constant in ft/s^2
+
 ## Running it
+This project is available in two forms:
+
+- `pipe.py` for a command-line run
+- `pipe.ipynb` for a notebook-based interactive run
+
+Create and activate a virtual environment to keep the project dependencies
+separate from your system Python installation:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+If you use a specific Python version, replace `python3` with that executable,
+for example `python3.12`. You can find the available Python executable with:
+
+```bash
+which python3
+```
+
+Then install the dependencies:
 
 ```bash
 pip install -r requirements.txt
+```
+
+Run the script version:
+
+```bash
 python pipe.py
 ```
 
+Or run the notebook version:
+
+```bash
+jupyter notebook pipe.ipynb
+```
+
+The notebook contains the same optimization model and plotting logic, so you can
+explore the results interactively without using the terminal prompt-based input
+flow.
+
 ## Reference
 
-Edgar, T.F., Himmelblau, D.M., Lasdon, L.S. *Optimization of Chemical
-Processes*, 2nd ed., McGraw-Hill, 2001. 
+Edgar, T.F., Himmelblau, D.M., Lasdon, L.S. *Optimization of Chemical Processes*, 2nd ed., McGraw-Hill, 2001. 
 
